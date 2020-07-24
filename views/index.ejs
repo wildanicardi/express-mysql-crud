@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LIST</title>
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+    <header>
+      <a href="/" class="header-logo">LIST</a>
+    </header>
+    <div class="container">
+      <div class="container-header">
+        <h1>Daftar User</h1>
+        <a href="/new" class="new-button">+ Tambahkan</a>
+      </div>
+      <div class="index-table-wrapper">
+        <div class="table-head">
+          <span class="id-column">ID</span>
+          <span>Users</span>
+        </div>
+        <ul class="table-body">
+          <% users.forEach((user,key) => { %>
+            <li>
+              <div class="item-data">
+                <span class="id-column"><%= key+=1 %></span>
+                <span class="name-column"><%= user.name %></span>
+              </div>
+              <div class="item-menu">
+                <form action="/delete/<%= user.id %>" method="post">
+                  <input type="submit" value="Hapus">
+                </form>
+                <a href="/edit/<%= user.id %>">Edit</a>
+              </div>
+            </li>
+          <% }) %>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
